@@ -9,30 +9,27 @@ import { MovieCard } from "@/components/MovieCard";
 import { Button } from "@/components/ui/button";
 import { fetchMoviesByGenre, Movie } from "@/lib/tmdb";
 
-const genreMap: { [key: string]: { name: string; id: number; description: string; color: string; } } = {
+const genreMap: { [key: string]: { name: string; id: number; description: string; } } = {
   "crime": { 
     name: "Crime Thrillers", 
     id: 80, 
     description: "Gripping tales of crime, investigation, and justice",
-    color: "from-red-600 to-red-900",
+    // color: "from-red-800 to-red-900",
   },
   "sci-fi": { 
     name: "Sci-Fi Adventures", 
     id: 878, 
     description: "Mind-bending journeys through space, time, and technology",
-    color: "from-blue-600 to-blue-900",
   },
   "action": { 
     name: "Action Blockbusters", 
     id: 28, 
     description: "High-octane thrills, explosions, and heroic feats",
-    color: "from-orange-600 to-orange-900",
   },
   "comedy": { 
     name: "Comedy Classics", 
     id: 35, 
     description: "Timeless films that bring laughter and joy",
-    color: "from-yellow-600 to-yellow-900",
   }
 };
 
