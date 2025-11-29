@@ -136,26 +136,7 @@ export const Footer = () => {
           </div>
         </div>
 
-        {/* Bottom Bar */}
-        <div className="pt-8 border-t border-border/50">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-sm text-muted-foreground flex items-center gap-2">
-              &copy; {new Date().getFullYear()} Movie Stack. Crafted with 
-              for film lovers worldwide
-            </p>
-            <div className="flex gap-6 text-xs text-muted-foreground">
-              <a href="#" className="hover:text-yellow-300 transition-colors">
-                Accessibility
-              </a>
-              <a href="#" className="hover:text-yellow-300 transition-colors">
-                Cookie Settings
-              </a>
-              <a href="#" className="hover:text-yellow-300 transition-colors">
-                Help Center
-              </a>
-            </div>
-          </div>
-        </div>
+      
       </div>
     </footer>
   );

@@ -28,7 +28,7 @@ export default async function MovieDetailPage({ params }: MovieDetailPageProps) 
   const rating = movie.vote_average?.toFixed(1) || "N/A";
 
   return (
-    <div className="min-h-screen bg-background ">
+    <div className="min-h-screen bg-black">
       <Navbar />
 
       {/* Backdrop */}
@@ -39,13 +39,16 @@ export default async function MovieDetailPage({ params }: MovieDetailPageProps) 
             alt={movie.title}
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/50 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-transparent" />
         </div>
       </div>
 
-      <div className="container mx-auto px-14 -mt-32 relative z-10 pb-12">
+      <div className="container mx-auto px-6 -mt-32 relative z-10 pb-12">
         <Link href="/movies">
-          <Button variant="secondary" className="mb-6">
+          <Button 
+            variant="ghost" 
+            className="mb-6 border border-zinc-800 bg-black/50 backdrop-blur-sm hover:bg-zinc-900 text-white"
+          >
             <ArrowLeft className="w-4 h-4 mr-2" />
             Back to Movies
           </Button>
@@ -54,7 +57,7 @@ export default async function MovieDetailPage({ params }: MovieDetailPageProps) 
         <div className="grid md:grid-cols-3 gap-8">
           {/* Poster */}
           <div className="md:sticky md:top-24 h-fit">
-            <div className="aspect-[2/3] rounded-lg overflow-hidden shadow-card">
+            <div className="aspect-[2/3] rounded-xl overflow-hidden shadow-2xl shadow-black/50 ring-1 ring-zinc-900">
               <img
                 src={getImageUrl(movie.poster_path, 'w780')}
                 alt={movie.title}
@@ -66,30 +69,30 @@ export default async function MovieDetailPage({ params }: MovieDetailPageProps) 
           {/* Details */}
           <div className="md:col-span-2 space-y-6">
             <div>
-              <h1 className="text-4xl md:text-5xl font-display tracking-wide text-gray-300 font-bold mb-2">
+              <h1 className="text-4xl md:text-5xl font-bold text-white mb-2 leading-tight">
                 {movie.title}
               </h1>
               {movie.tagline && (
-                <p className="text-xl text-muted-foreground italic text-gray-400">{movie.tagline}</p>
+                <p className="text-xl text-zinc-400 italic">{movie.tagline}</p>
               )}
             </div>
 
-            <div className="flex flex-wrap items-center gap-4">
-              <div className="flex items-center gap-2 text-primary">
-                <Star className="w-6 h-6 fill-current  text-yellow-400" />
-                <span className="text-2xl font-bold text-yellow-400">{rating}</span>
-                <span className="text-muted-foreground">/ 10</span>
+            <div className="flex flex-wrap items-center gap-6">
+              <div className="flex items-center gap-2">
+                <Star className="w-6 h-6 fill-amber-500 text-amber-500" />
+                <span className="text-2xl font-bold text-white">{rating}</span>
+                <span className="text-zinc-500">/ 10</span>
               </div>
 
               {movie.runtime && movie.runtime > 0 && (
-                <div className="flex items-center gap-2 text-muted-foreground">
-                  <Clock className="w-5 h-5 text-gray-400" />
+                <div className="flex items-center gap-2 text-zinc-400">
+                  <Clock className="w-5 h-5" />
                   <span>{movie.runtime} min</span>
                 </div>
               )}
 
               {movie.release_date && (
-                <div className="flex items-center gap-2 text-muted-foreground">
+                <div className="flex items-center gap-2 text-zinc-400">
                   <Calendar className="w-5 h-5" />
                   <span>{new Date(movie.release_date).getFullYear()}</span>
                 </div>
@@ -99,7 +102,10 @@ export default async function MovieDetailPage({ params }: MovieDetailPageProps) 
             {movie.genres && movie.genres.length > 0 && (
               <div className="flex flex-wrap gap-2">
                 {movie.genres.map((genre: { id: number; name: string }) => (
-                  <Badge key={genre.id} variant="secondary" className="text-sm">
+                  <Badge 
+                    key={genre.id} 
+                    className="bg-zinc-900 border-zinc-800 text-zinc-300 hover:bg-zinc-800 text-sm px-4 py-1.5"
+                  >
                     {genre.name}
                   </Badge>
                 ))}
@@ -108,8 +114,8 @@ export default async function MovieDetailPage({ params }: MovieDetailPageProps) 
 
             {movie.overview && (
               <div className="space-y-4">
-                <h2 className="text-2xl font-semibold text-foreground">Overview</h2>
-                <p className="text-lg text-muted-foreground leading-relaxed text-gray-400">
+                <h2 className="text-2xl font-semibold text-white">Overview</h2>
+                <p className="text-lg text-zinc-300 leading-relaxed">
                   {movie.overview}
                 </p>
               </div>
@@ -117,8 +123,10 @@ export default async function MovieDetailPage({ params }: MovieDetailPageProps) 
 
             {movie.status && (
               <div className="space-y-2">
-                <h3 className="text-xl font-semibold text-foreground">Status</h3>
-                <Badge variant="outline">{movie.status}</Badge>
+                <h3 className="text-xl font-semibold text-white">Status</h3>
+                <Badge className="bg-green-600/20 border-green-900/30 text-green-400 hover:bg-green-600/30">
+                  {movie.status}
+                </Badge>
               </div>
             )}
           </div>

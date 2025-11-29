@@ -27,8 +27,8 @@ export const MovieCard = ({ movie }: MovieCardProps) => {
           </h3>
           <div className="flex items-center gap-2 text-sm">
             <div className="flex items-center gap-1 text-primary">
-              <Star className="w-4 h-4 fill-current" />
-              <span className="font-semibold">{rating}</span>
+              <Star className="w-4 h-4 fill-current text-yellow-400" />
+              <span className="font-semibold text-yellow-400">{rating}</span>
             </div>
             <span className="text-muted-foreground">
               {movie.release_date

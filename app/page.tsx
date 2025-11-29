@@ -47,7 +47,7 @@ const Home = () => {
         <div className="relative z-20 container mx-auto px-6 h-full flex items-center">
           <div className="max-w-2xl space-y-6">
             <div className="flex items-center gap-3 text-sm">
-              <span className="px-3 py-1 bg-yellow-600 text-white font-medium rounded">Featuyellow</span>
+              <span className="px-3 py-1 bg-yellow-600 text-white font-medium rounded">Featured</span>
               <span className="text-zinc-400">Your weekend pick</span>
             </div>
 
