@@ -71,7 +71,6 @@ export default function ListDetailPage({ params }: PageProps) {
   if (!genre) {
     return (
       <div className="min-h-screen bg-black">
-        <Navbar />
         <div className="container mx-auto px-6 py-20 text-center">
           <h1 className="text-3xl font-bold text-white mb-4">Collection Not Found</h1>
           <p className="text-zinc-400 mb-8">This collection doesn't exist or has been removed.</p>
@@ -88,7 +87,6 @@ export default function ListDetailPage({ params }: PageProps) {
 
   return (
     <div className="min-h-screen bg-black">
-      <Navbar />
 
       {/* Hero Header */}
       <div className={`relative overflow-hidden bg-gradient-to-br ${genre.color}`}>
@@ -188,7 +186,6 @@ export default function ListDetailPage({ params }: PageProps) {
         )}
       </div>
 
-      <Footer />
     </div>
   );
 }
