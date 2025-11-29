@@ -1,10 +1,11 @@
 import { Film, Github, Twitter, Instagram, Mail, Heart } from "lucide-react";
+import {IoMdFilm } from "react-icons/io"
 
 export const Footer = () => {
   return (
-    <footer className="relative bg-gradient-to-b from-background to-black/20 mt-20 px-10">
+    <footer className="relative bg-linear-to-b from-background to-black/20 mt-20 px-10">
       {/* Decorative top border */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-yellow-300/50 to-transparent" />
+      <div className="absolute top-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-yellow-300/50 to-transparent" />
       
       <div className="container mx-auto px-4 py-16">
         {/* Main Footer Content */}
@@ -12,8 +13,8 @@ export const Footer = () => {
           {/* Brand Section */}
           <div className="space-y-6">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-yellow-300 to-yellow-600 flex items-center justify-center">
-                <Film className="w-6 h-6 text-black" />
+              <div className="w-10 h-10 rounded-lg bg-linear-to-br from-yellow-300 to-yellow-600 flex items-center justify-center">
+                <IoMdFilm className="w-6 h-6 text-black" />
               </div>
               <span className="text-2xl font-display tracking-wider text-foreground">
                 Movie Stack

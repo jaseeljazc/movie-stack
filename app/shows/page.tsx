@@ -7,21 +7,18 @@ import Link from "next/link";
 const Shows = () => {
   return (
     <div className="min-h-screen bg-black">
-      <Navbar />
-
       {/* Coming Soon Section */}
       <div className="container mx-auto px-6 py-32">
         <div className="max-w-3xl mx-auto text-center space-y-8">
-        
-          
           <div className="space-y-4">
             <h1 className="text-5xl md:text-6xl font-bold text-white leading-tight">
               TV Shows Coming Soon
             </h1>
-            
+
             <p className="text-xl text-zinc-400 leading-relaxed max-w-2xl mx-auto">
-              We're building an incredible TV shows experience with trending series, 
-              top-rated episodes, and personalized recommendations. Stay tuned!
+              We're building an incredible TV shows experience with trending
+              series, top-rated episodes, and personalized recommendations. Stay
+              tuned!
             </p>
           </div>
 
@@ -54,16 +51,8 @@ const Shows = () => {
               </p>
             </div>
           </div>
-
-        
         </div>
       </div>
-
-      
-
-   
-
-      <Footer />
     </div>
   );
 };

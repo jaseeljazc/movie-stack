@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import { useEffect, useState } from "react";
 import { Search, Filter, X, ChevronDown } from "lucide-react";
@@ -7,8 +7,20 @@ import { Footer } from "@/components/Footer";
 import { MovieCard } from "@/components/MovieCard";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { fetchTopRated, searchMovies, fetchGenres, Movie, Genre } from "@/lib/tmdb";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import {
+  fetchTopRated,
+  searchMovies,
+  fetchGenres,
+  Movie,
+  Genre,
+} from "@/lib/tmdb";
 
 const Movies = () => {
   const [movies, setMovies] = useState<Movie[]>([]);
@@ -27,7 +39,7 @@ const Movies = () => {
         const genreList = await fetchGenres();
         setGenres(genreList);
       } catch (error) {
-        console.error('Error fetching genres:', error);
+        console.error("Error fetching genres:", error);
       }
     };
     loadGenres();
@@ -38,7 +50,10 @@ const Movies = () => {
       setLoading(true);
       try {
         if (searchQuery) {
-          const { results, total_pages } = await searchMovies(searchQuery, page);
+          const { results, total_pages } = await searchMovies(
+            searchQuery,
+            page
+          );
           setMovies(results);
           setTotalPages(total_pages);
         } else {
@@ -47,7 +62,7 @@ const Movies = () => {
           setTotalPages(total_pages);
         }
       } catch (error) {
-        console.error('Error fetching movies:', error);
+        console.error("Error fetching movies:", error);
       } finally {
         setLoading(false);
       }
@@ -67,8 +82,6 @@ const Movies = () => {
     return true;
   });
 
-
-  
   const sortedMovies = [...filteredMovies].sort((a, b) => {
     switch (sortBy) {
       case "rating":
@@ -76,18 +89,21 @@ const Movies = () => {
       case "popularity":
         return b.popularity - a.popularity;
       case "newest":
-        return new Date(b.release_date).getTime() - new Date(a.release_date).getTime();
+        return (
+          new Date(b.release_date).getTime() -
+          new Date(a.release_date).getTime()
+        );
       default:
         return 0;
     }
   });
 
-  const selectedGenreName = genres.find(g => g.id.toString() === selectedGenre)?.name;
+  const selectedGenreName = genres.find(
+    (g) => g.id.toString() === selectedGenre
+  )?.name;
 
   return (
     <div className="min-h-screen bg-black">
-      <Navbar />
-
       {/* Header Section */}
       <div className="bg-zinc-950 border-b border-zinc-900">
         <div className="container mx-auto px-6 py-12">
@@ -95,16 +111,15 @@ const Movies = () => {
             <div className="flex items-center justify-between">
               <div>
                 <h1 className="text-4xl md:text-5xl font-bold text-white mb-2">
-                  {searchQuery ? 'Search Results' : 'Browse Movies'}
+                  {searchQuery ? "Search Results" : "Browse Movies"}
                 </h1>
                 <p className="text-zinc-400 text-lg">
-                  {searchQuery 
+                  {searchQuery
                     ? `Showing results for "${searchQuery}"`
-                    : `Discover ${sortedMovies.length}+ highly rated films`
-                  }
+                    : `Discover ${sortedMovies.length}+ highly rated films`}
                 </p>
               </div>
-              
+
               <Button
                 variant="outline"
                 onClick={() => setShowFilters(!showFilters)}
@@ -142,18 +157,25 @@ const Movies = () => {
             </div>
 
             {/* Filters Row */}
-            <div className={`flex flex-wrap gap-3 ${showFilters ? 'flex' : 'hidden md:flex'}`}>
+            <div
+              className={`flex flex-wrap gap-3 ${
+                showFilters ? "flex" : "hidden md:flex"
+              }`}
+            >
               <Select value={selectedGenre} onValueChange={setSelectedGenre}>
                 <SelectTrigger className="w-auto min-w-[140px] bg-zinc-900 border-zinc-800 text-white hover:bg-zinc-800 rounded-lg h-11">
                   <SelectValue placeholder="All Genres" />
                 </SelectTrigger>
                 <SelectContent className="bg-zinc-900 border-zinc-800">
-                  <SelectItem value="all" className="text-white hover:bg-zinc-800">
+                  <SelectItem
+                    value="all"
+                    className="text-white hover:bg-zinc-800"
+                  >
                     All Genres
                   </SelectItem>
                   {genres.map((genre) => (
-                    <SelectItem 
-                      key={genre.id} 
+                    <SelectItem
+                      key={genre.id}
                       value={genre.id.toString()}
                       className="text-white hover:bg-zinc-800"
                     >
@@ -168,13 +190,22 @@ const Movies = () => {
                   <SelectValue placeholder="Sort by" />
                 </SelectTrigger>
                 <SelectContent className="bg-zinc-900 border-zinc-800">
-                  <SelectItem value="rating" className="text-white hover:bg-zinc-800">
+                  <SelectItem
+                    value="rating"
+                    className="text-white hover:bg-zinc-800"
+                  >
                     Highest Rated
                   </SelectItem>
-                  <SelectItem value="popularity" className="text-white hover:bg-zinc-800">
+                  <SelectItem
+                    value="popularity"
+                    className="text-white hover:bg-zinc-800"
+                  >
                     Most Popular
                   </SelectItem>
-                  <SelectItem value="newest" className="text-white hover:bg-zinc-800">
+                  <SelectItem
+                    value="newest"
+                    className="text-white hover:bg-zinc-800"
+                  >
                     Newest First
                   </SelectItem>
                 </SelectContent>
@@ -220,7 +251,10 @@ const Movies = () => {
           {loading ? (
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-5">
               {[...Array(24)].map((_, i) => (
-                <div key={i} className="aspect-2/3 bg-zinc-900 animate-pulse rounded-xl" />
+                <div
+                  key={i}
+                  className="aspect-2/3 bg-zinc-900 animate-pulse rounded-xl"
+                />
               ))}
             </div>
           ) : sortedMovies.length === 0 ? (
@@ -228,7 +262,9 @@ const Movies = () => {
               <div className="text-zinc-600 mb-4">
                 <Search className="h-16 w-16 mx-auto mb-4" />
               </div>
-              <h3 className="text-2xl font-semibold text-white mb-2">No movies found</h3>
+              <h3 className="text-2xl font-semibold text-white mb-2">
+                No movies found
+              </h3>
               <p className="text-zinc-400 mb-6">
                 Try adjusting your search or filters
               </p>
@@ -267,14 +303,17 @@ const Movies = () => {
                   >
                     Previous
                   </Button>
-                  
+
                   <div className="flex items-center gap-2">
                     <span className="text-zinc-400 text-sm">
-                      Page <span className="text-white font-medium">{page}</span> of{" "}
-                      <span className="text-white font-medium">{Math.min(totalPages, 500)}</span>
+                      Page{" "}
+                      <span className="text-white font-medium">{page}</span> of{" "}
+                      <span className="text-white font-medium">
+                        {Math.min(totalPages, 500)}
+                      </span>
                     </span>
                   </div>
-                  
+
                   <Button
                     variant="outline"
                     onClick={() => setPage(Math.min(totalPages, page + 1))}
@@ -289,8 +328,6 @@ const Movies = () => {
           )}
         </div>
       </div>
-
-      <Footer />
     </div>
   );
 };

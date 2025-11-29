@@ -1,33 +1,32 @@
-'use client'
+"use client";
 
-import { Navbar } from "@/components/Navbar"
-import { Footer } from "@/components/Footer"
-import { AlertCircle, RefreshCw, Film } from "lucide-react"
+import { Navbar } from "@/components/Navbar";
+import { Footer } from "@/components/Footer";
+import { AlertCircle, RefreshCw, Film } from "lucide-react";
 
 // Error Page Component
 export default function ErrorPage({
   error,
   reset,
 }: {
-  error: Error & { digest?: string }
-  reset: () => void
+  error: Error & { digest?: string };
+  reset: () => void;
 }) {
   return (
     <div className="min-h-screen bg-black flex flex-col mt-10">
-      <Navbar />
-      
       <div className="flex-1 flex items-center justify-center px-6">
         <div className="max-w-md text-center space-y-6">
           <div className="w-20 h-20 mx-auto rounded-full bg-red-600/20 border border-red-900/30 flex items-center justify-center">
             <AlertCircle className="w-10 h-10 text-red-500" />
           </div>
-          
+
           <div className="space-y-3">
             <h1 className="text-3xl font-bold text-white">
               Something went wrong
             </h1>
             <p className="text-lg text-zinc-400">
-              {error.message || 'An unexpected error occurred. Please try again.'}
+              {error.message ||
+                "An unexpected error occurred. Please try again."}
             </p>
           </div>
 
@@ -54,8 +53,6 @@ export default function ErrorPage({
           )}
         </div>
       </div>
-      
-      <Footer />
     </div>
-  )
+  );
 }

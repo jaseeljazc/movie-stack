@@ -12,7 +12,7 @@ const Lists = () => {
       path: "/lists/crime",
       genreId: 80,
       color: "from-red-600/20 to-red-900/20",
-      borderColor: "border-red-900/30"
+      borderColor: "border-red-900/30",
     },
     {
       title: "Sci-Fi Adventures",
@@ -20,7 +20,7 @@ const Lists = () => {
       path: "/lists/sci-fi",
       genreId: 878,
       color: "from-blue-600/20 to-blue-900/20",
-      borderColor: "border-blue-900/30"
+      borderColor: "border-blue-900/30",
     },
     {
       title: "Action Blockbusters",
@@ -28,7 +28,7 @@ const Lists = () => {
       path: "/lists/action",
       genreId: 28,
       color: "from-orange-600/20 to-orange-900/20",
-      borderColor: "border-orange-900/30"
+      borderColor: "border-orange-900/30",
     },
     {
       title: "Comedy Classics",
@@ -36,15 +36,12 @@ const Lists = () => {
       path: "/lists/comedy",
       genreId: 35,
       color: "from-yellow-600/20 to-yellow-900/20",
-      borderColor: "border-yellow-900/30"
+      borderColor: "border-yellow-900/30",
     },
-
   ];
 
   return (
     <div className="min-h-screen bg-black">
-      <Navbar />
-
       {/* Header Section */}
       <div className="bg-zinc-950 border-b border-zinc-900">
         <div className="container mx-auto px-6 py-16">
@@ -53,8 +50,8 @@ const Lists = () => {
               Curated Collections
             </h1>
             <p className="text-xl text-zinc-400 leading-relaxed">
-              Hand-picked movies organized by genre, theme, and style. 
-              Find your next favorite film in our carefully curated lists.
+              Hand-picked movies organized by genre, theme, and style. Find your
+              next favorite film in our carefully curated lists.
             </p>
           </div>
         </div>
@@ -67,10 +64,10 @@ const Lists = () => {
             {lists.map((list) => {
               return (
                 <Link key={list.path} href={list.path}>
-                  <div className={`group relative overflow-hidden rounded-2xl bg-gradient-to-br ${list.color} border ${list.borderColor} p-8 h-full transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl hover:shadow-black/50`}>
+                  <div
+                    className={`group relative overflow-hidden rounded-2xl bg-gradient-to-br ${list.color} border ${list.borderColor} p-8 h-full transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl hover:shadow-black/50`}
+                  >
                     <div className="flex flex-col h-full space-y-4">
-                      
-                      
                       <div className="flex-1">
                         <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-white/90 transition-colors">
                           {list.title}
@@ -79,7 +76,7 @@ const Lists = () => {
                           {list.description}
                         </p>
                       </div>
-                      
+
                       <div className="flex items-center text-white font-medium pt-2">
                         <span className="text-sm">Explore collection</span>
                         <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-2 transition-transform" />
@@ -93,12 +90,8 @@ const Lists = () => {
               );
             })}
           </div>
-
-        
         </div>
       </div>
-
-      <Footer />
     </div>
   );
 };

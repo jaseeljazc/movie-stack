@@ -11,9 +11,11 @@ interface MovieDetailPageProps {
   params: Promise<{ id: string }>;
 }
 
-export default async function MovieDetailPage({ params }: MovieDetailPageProps) {
+export default async function MovieDetailPage({
+  params,
+}: MovieDetailPageProps) {
   const { id } = await params;
-  
+
   // Validate that id is a number
   if (!id || isNaN(Number(id))) {
     notFound();
@@ -29,13 +31,11 @@ export default async function MovieDetailPage({ params }: MovieDetailPageProps) 
 
   return (
     <div className="min-h-screen bg-black">
-      <Navbar />
-
       {/* Backdrop */}
       <div className="relative h-[40vh] md:h-[60vh] overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src={getImageUrl(movie.backdrop_path, 'original')}
+            src={getImageUrl(movie.backdrop_path, "original")}
             alt={movie.title}
             className="w-full h-full object-cover"
           />
@@ -45,8 +45,8 @@ export default async function MovieDetailPage({ params }: MovieDetailPageProps) 
 
       <div className="container mx-auto px-6 -mt-32 relative z-10 pb-12">
         <Link href="/movies">
-          <Button 
-            variant="ghost" 
+          <Button
+            variant="ghost"
             className="mb-6 border border-zinc-800 bg-black/50 backdrop-blur-sm hover:bg-zinc-900 text-white"
           >
             <ArrowLeft className="w-4 h-4 mr-2" />
@@ -59,7 +59,7 @@ export default async function MovieDetailPage({ params }: MovieDetailPageProps) 
           <div className="md:sticky md:top-24 h-fit">
             <div className="aspect-[2/3] rounded-xl overflow-hidden shadow-2xl shadow-black/50 ring-1 ring-zinc-900">
               <img
-                src={getImageUrl(movie.poster_path, 'w780')}
+                src={getImageUrl(movie.poster_path, "w780")}
                 alt={movie.title}
                 className="w-full h-full object-cover"
               />
@@ -102,8 +102,8 @@ export default async function MovieDetailPage({ params }: MovieDetailPageProps) 
             {movie.genres && movie.genres.length > 0 && (
               <div className="flex flex-wrap gap-2">
                 {movie.genres.map((genre: { id: number; name: string }) => (
-                  <Badge 
-                    key={genre.id} 
+                  <Badge
+                    key={genre.id}
                     className="bg-zinc-900 border-zinc-800 text-zinc-300 hover:bg-zinc-800 text-sm px-4 py-1.5"
                   >
                     {genre.name}
@@ -132,8 +132,6 @@ export default async function MovieDetailPage({ params }: MovieDetailPageProps) 
           </div>
         </div>
       </div>
-
-      <Footer />
     </div>
   );
 }
@@ -141,7 +139,7 @@ export default async function MovieDetailPage({ params }: MovieDetailPageProps) 
 // Generate metadata for SEO
 export async function generateMetadata({ params }: MovieDetailPageProps) {
   const { id } = await params;
-  
+
   // Validate ID before fetching
   if (!id || isNaN(Number(id))) {
     return {
@@ -164,7 +162,9 @@ export async function generateMetadata({ params }: MovieDetailPageProps) {
       openGraph: {
         title: movie.title,
         description: movie.overview || "",
-        images: movie.poster_path ? [getImageUrl(movie.poster_path, 'w780')] : [],
+        images: movie.poster_path
+          ? [getImageUrl(movie.poster_path, "w780")]
+          : [],
       },
     };
   } catch (error) {

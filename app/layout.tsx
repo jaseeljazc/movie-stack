@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
+import { Navbar } from "@/components/Navbar";
+import { Footer } from "@/components/Footer";
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -28,7 +31,7 @@ export const metadata: Metadata = {
     "sci-fi movies",
     "comedy movies",
     "top rated movies",
-    "film recommendations"
+    "film recommendations",
   ],
   openGraph: {
     title: "MovieStack – Find the Best Movies",
@@ -40,11 +43,19 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      >
+        <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   );
