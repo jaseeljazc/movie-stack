@@ -33,8 +33,8 @@ const Home = () => {
       
       {/* Hero Section with Featuyellow Content */}
       <section className="relative h-[85vh] overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-zinc-950 via-zinc-950/95 to-transparent z-10" />
-        <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-transparent to-transparent z-10" />
+        <div className="absolute inset-0 bg-linear-to-r from-zinc-950 via-zinc-950/95 to-transparent z-10" />
+        <div className="absolute inset-0 bg-linear-to-t from-zinc-950 via-transparent to-transparent z-10" />
         
         <div className="absolute inset-0 opacity-40">
           <img 
@@ -137,7 +137,7 @@ const Home = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             <Link href="lists/action">
               <div className="group relative h-64 rounded-2xl overflow-hidden cursor-pointer">
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent z-10" />
+                <div className="absolute inset-0 bg-linear-to-t from-black via-black/50 to-transparent z-10" />
                 <img 
                   src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=600&q=80" 
                   alt="Action"
@@ -152,7 +152,7 @@ const Home = () => {
 
             <Link href="/lists/crime">
               <div className="group relative h-64 rounded-2xl overflow-hidden cursor-pointer">
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent z-10" />
+                <div className="absolute inset-0 bg-linear-to-t from-black via-black/50 to-transparent z-10" />
                 <img 
                   src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=600&q=80" 
                   alt="Drama"
@@ -167,7 +167,7 @@ const Home = () => {
 
             <Link href="/lists/comedy">
               <div className="group relative h-64 rounded-2xl overflow-hidden cursor-pointer">
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent z-10" />
+                <div className="absolute inset-0 bg-linear-to-t from-black via-black/50 to-transparent z-10" />
                 <img 
                   src="https://images.unsplash.com/photo-1485846234645-a62644f84728?w=600&q=80" 
                   alt="Comedy"
@@ -182,7 +182,7 @@ const Home = () => {
 
             <Link href="/movies?genre=scifi">
               <div className="group relative h-64 rounded-2xl overflow-hidden cursor-pointer">
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent z-10" />
+                <div className="absolute inset-0 bg-linear-to-t from-black via-black/50 to-transparent z-10" />
                 <img 
                   src="https://images.unsplash.com/photo-1518676590629-3dcbd9c5a5c9?w=600&q=80" 
                   alt="Sci-Fi"
