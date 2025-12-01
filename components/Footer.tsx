@@ -3,7 +3,7 @@ import {IoMdFilm } from "react-icons/io"
 
 export const Footer = () => {
   return (
-    <footer className="relative bg-linear-to-b from-background to-black/20 mt-20 px-10">
+    <footer className="relative bg-linear-to-b from-black to-black/20 mt-20 px-10">
       {/* Decorative top border */}
       <div className="absolute top-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-yellow-300/50 to-transparent" />
       

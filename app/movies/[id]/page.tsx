@@ -1,6 +1,8 @@
+
+
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { ArrowLeft, Star, Clock, Calendar } from "lucide-react";
+import { ArrowLeft, Star, Clock, Calendar, Heart } from "lucide-react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -28,6 +30,7 @@ export default async function MovieDetailPage({
   }
 
   const rating = movie.vote_average?.toFixed(1) || "N/A";
+
 
   return (
     <div className="min-h-screen bg-black">
@@ -120,6 +123,7 @@ export default async function MovieDetailPage({
                 </p>
               </div>
             )}
+      
 
             {movie.status && (
               <div className="space-y-2">

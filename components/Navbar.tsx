@@ -25,6 +25,12 @@ export const Navbar = () => {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
             <Link
+              href="/"
+              className="text-md font-medium text-zinc-300 hover:text-white transition-colors"
+            >
+              Home
+            </Link>
+            <Link
               href="/movies"
               className="text-md font-medium text-zinc-300 hover:text-white transition-colors"
             >
@@ -43,10 +49,10 @@ export const Navbar = () => {
               About
             </Link>
             <Link
-              href="/lists"
+              href="/watchlist"
               className="text-md font-medium text-zinc-300 hover:text-white transition-colors"
             >
-              My Lists
+             Watchlist
             </Link>
           </div>
 
@@ -86,11 +92,11 @@ export const Navbar = () => {
               TV Shows
             </Link>
             <Link
-              href="/lists"
+              href="/watchlist"
               className="block py-3 px-4 text-sm font-medium text-zinc-400 hover:text-white hover:bg-zinc-900 rounded-lg transition-colors"
               onClick={() => setMobileMenuOpen(false)}
             >
-              My Lists
+             Watchlist
             </Link>
           </div>
         )}
